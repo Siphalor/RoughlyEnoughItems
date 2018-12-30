@@ -46,15 +46,15 @@ public class DrawContainerListener implements DrawContainer, GuiCickListener, Gu
     }
     
     @Override
-    public void clientTick(final Minecraft minecraft) {
-        REIRenderHelper.tick();
-    }
-    
-    @Override
     public boolean mouseScrolled(double direction) {
         GuiScreen gui = Minecraft.getInstance().currentScreen;
         if (!(gui instanceof GuiContainerCreative) || ((GuiContainerCreative) gui).getSelectedTabIndex() == ItemGroup.INVENTORY.getIndex())
             return REIRenderHelper.mouseScrolled(direction);
         return false;
+    }
+    
+    @Override
+    public void clientTick() {
+        REIRenderHelper.tick();
     }
 }

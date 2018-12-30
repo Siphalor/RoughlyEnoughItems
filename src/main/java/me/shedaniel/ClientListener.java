@@ -43,10 +43,10 @@ public class ClientListener implements DoneLoading, RecipeLoadListener {
     }
     
     private void buildItemList() {
-        if (!IRegistry.ITEM.isEmpty())
-            IRegistry.ITEM.forEach(this::processItem);
-        if (!IRegistry.ENCHANTMENT.isEmpty())
-            IRegistry.ENCHANTMENT.forEach(enchantment -> {
+        if (!Item.REGISTRY.isEmpty())
+            Item.REGISTRY.forEach(this::processItem);
+        if (!Enchantment.REGISTRY.isEmpty())
+            Enchantment.REGISTRY.forEach(enchantment -> {
                 for(int i = enchantment.getMinLevel(); i < enchantment.getMaxLevel(); i++) {
                     ItemStack stack = new ItemStack(Items.ENCHANTED_BOOK);
                     Map<Enchantment, Integer> map = new HashMap<>();

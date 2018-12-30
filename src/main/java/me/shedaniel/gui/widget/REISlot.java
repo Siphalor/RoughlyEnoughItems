@@ -10,6 +10,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.client.renderer.RenderHelper;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.IRegistry;
@@ -147,7 +148,7 @@ public class REISlot extends Control {
     
     public String getMod() {
         if (!getStack().isEmpty()) {
-            ResourceLocation location = IRegistry.ITEM.getKey(getStack().getItem());
+            ResourceLocation location = Item.REGISTRY.getKey(getStack().getItem());
             assert location != null;
             return REIRenderHelper.tryGettingModName(location.getNamespace());
         }

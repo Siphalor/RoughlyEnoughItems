@@ -16,8 +16,11 @@ import net.minecraft.init.PotionTypes;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.*;
+import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionType;
+import net.minecraft.potion.PotionUtil;
 import net.minecraft.potion.PotionUtils;
+import net.minecraft.util.datafix.fixes.PotionItems;
 import net.minecraft.util.registry.IRegistry;
 
 import java.util.LinkedList;
@@ -52,7 +55,7 @@ public class VanillaPlugin implements IREIPlugin, PotionCraftingAdder {
                 furnaceRecipes.add(new VanillaFurnaceRecipe((FurnaceRecipe) recipe));
             }
         }
-        IRegistry.POTION.stream().filter(potionType -> !potionType.equals(PotionTypes.EMPTY)).forEach(potionType -> {
+        PotionType.REGISTRY.stream().filter(potionType -> !potionType.equals(PotionTypes.EMPTY)).forEach(potionType -> {
             ItemStack basePotion = PotionUtils.addPotionToItemStack(new ItemStack(Items.POTION), potionType),
                     splashPotion = PotionUtils.addPotionToItemStack(new ItemStack(Items.SPLASH_POTION), potionType),
                     lingeringPotion = PotionUtils.addPotionToItemStack(new ItemStack(Items.LINGERING_POTION), potionType);

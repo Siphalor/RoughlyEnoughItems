@@ -3,7 +3,7 @@ package me.shedaniel.mixins;
 import me.shedaniel.listenerdefinitions.RecipeLoadListener;
 import net.minecraft.client.network.NetHandlerPlayClient;
 import net.minecraft.item.crafting.RecipeManager;
-import net.minecraft.network.play.server.SPacketUpdateRecipes;
+import net.minecraft.network.play.server.SPacketUpdateRecipesPacket;
 import org.dimdev.riftloader.RiftLoader;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -18,7 +18,7 @@ public class MixinRecipeManager {
     RecipeManager recipeManager;
     
     @Inject(method = "handleUpdateRecipes", at = @At("RETURN"))
-    private void onUpdateRecipies(SPacketUpdateRecipes packetIn, CallbackInfo ci) {
+    private void onUpdateRecipies(SPacketUpdateRecipesPacket packetIn, CallbackInfo ci) {
         for(RecipeLoadListener listener : RiftLoader.instance.getListeners(RecipeLoadListener.class)) {
             listener.recipesLoaded(recipeManager);
         }

@@ -11,6 +11,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.MathHelper;
@@ -295,7 +296,7 @@ public class GuiItemList extends Drawable {
     
     private String getMod(ItemStack stack) {
         if (stack != null && !stack.isEmpty()) {
-            ResourceLocation location = IRegistry.ITEM.getKey(stack.getItem());
+            ResourceLocation location = Item.REGISTRY.getKey(stack.getItem());
             return location.getNamespace();
         }
         return "";

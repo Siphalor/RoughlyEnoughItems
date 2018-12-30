@@ -25,9 +25,6 @@ public abstract class MixinGuiContainerCreative extends InventoryEffectRenderer 
     private GuiTextField searchField;
     
     @Shadow
-    protected abstract boolean hasTmpInventory(@Nullable Slot p_208018_1_);
-    
-    @Shadow
     protected abstract void setCurrentCreativeTab(ItemGroup tab);
     
     @Shadow
@@ -41,6 +38,9 @@ public abstract class MixinGuiContainerCreative extends InventoryEffectRenderer 
     
     @Shadow
     private float currentScroll;
+    
+    @Shadow
+    protected abstract boolean func_208018_a(@Nullable Slot p_208018_1_);
     
     public MixinGuiContainerCreative(Container inventorySlotsIn) {
         super(inventorySlotsIn);
@@ -60,7 +60,7 @@ public abstract class MixinGuiContainerCreative extends InventoryEffectRenderer 
                 if (listener.keyDown(p_keyPressed_1_, p_keyPressed_2_, p_keyPressed_3_))
                     return true;
         } else {
-            boolean flag = !this.hasTmpInventory(this.hoveredSlot) || this.hoveredSlot != null && this.hoveredSlot.getHasStack();
+            boolean flag = !this.func_208018_a(this.hoveredSlot) || this.hoveredSlot != null && this.hoveredSlot.getHasStack();
             
             if (flag && this.func_195363_d(p_keyPressed_1_, p_keyPressed_2_)) {
                 this.field_195377_F = true;
