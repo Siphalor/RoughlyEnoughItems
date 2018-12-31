@@ -38,11 +38,6 @@ public class VanillaPlugin implements IREIPlugin, PotionCraftingAdder {
         REIRecipeManager.instance().addDisplayAdapter(new VanillaCraftingCategory());
         REIRecipeManager.instance().addDisplayAdapter(new VanillaFurnaceCategory());
         REIRecipeManager.instance().addDisplayAdapter(new VanillaPotionCategory());
-//        REIRecipeManager.instance().addDisplayAdapter(new TestRandomCategory("a", new ItemStack(Blocks.ACACIA_BUTTON.asItem())));
-//        REIRecipeManager.instance().addDisplayAdapter(new TestRandomCategory("b", new ItemStack(Blocks.ACACIA_LOG.asItem())));
-//        REIRecipeManager.instance().addDisplayAdapter(new TestRandomCategory("c", new ItemStack(Blocks.ACACIA_LOG.asItem())));
-//        REIRecipeManager.instance().addDisplayAdapter(new TestRandomCategory("d", new ItemStack(Blocks.ACACIA_LOG.asItem())));
-//        REIRecipeManager.instance().addDisplayAdapter(new TestRandomCategory("e", new ItemStack(Blocks.ACACIA_LOG.asItem())));
         
         for(IRecipe recipe : REIRecipeManager.instance().recipeManager.getRecipes()) {
             if (recipe instanceof ShapelessRecipe) {
@@ -68,11 +63,6 @@ public class VanillaPlugin implements IREIPlugin, PotionCraftingAdder {
         REIRecipeManager.instance().addRecipe("vanilla", recipes);
         REIRecipeManager.instance().addRecipe("furnace", furnaceRecipes);
         REIRecipeManager.instance().addRecipe("potion", potionRecipes.stream().collect(Collectors.toList()));
-//        REIRecipeManager.instance().addPotionRecipe("a", new RandomRecipe("a"));
-//        REIRecipeManager.instance().addPotionRecipe("b", new RandomRecipe("b"));
-//        REIRecipeManager.instance().addPotionRecipe("c", new RandomRecipe("c"));
-//        REIRecipeManager.instance().addPotionRecipe("d", new RandomRecipe("d"));
-//        REIRecipeManager.instance().addPotionRecipe("e", new RandomRecipe("e"));
     }
     
     @Override
