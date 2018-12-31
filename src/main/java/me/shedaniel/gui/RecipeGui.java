@@ -173,7 +173,7 @@ public class RecipeGui extends GuiContainer {
             return false;
         selectedCategory = categories.get(index + categoryTabPage * 6);
         updateRecipe();
-        return false;
+        return true;
     }
     
     @Override
